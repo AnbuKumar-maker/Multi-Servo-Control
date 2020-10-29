@@ -1,0 +1,35 @@
+#include <Servo.h>
+
+//**** servo 1 settings
+Servo servo1; 
+const int servo1PotPin =A0;
+const int servo1Pin = 3;// Must use PWM enabled pin
+int servo1Value;
+//**** servo 1 settings END
+
+//**** servo 2 settings
+Servo servo2; 
+const int servo2PotPin =A1;
+const int servo2Pin = 5;// Must use PWM enabled pin
+int servo2Value;
+//**** servo 1 settings END
+
+void setup() {
+  //Robojax.com multiple servo
+  servo1.attach(servo1Pin); 
+  servo2.attach(servo2Pin);   
+}
+
+void loop() {
+  //Robojax.com multiple servo
+  servo1Value = analogRead(servo1PotPin); 
+  servo1Value = map(servo1Value, 0, 1023, 0, 180);
+  servo1.write(servo1Value);
+
+  servo2Value = analogRead(servo2PotPin); 
+  servo2Value = map(servo2Value, 0, 1023, 0, 180);
+  servo2.write(servo2Value);
+  
+  delay(5);
+ //Robojax.com multiple servo  
+}// loop end
